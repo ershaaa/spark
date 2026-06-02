@@ -1,0 +1,19 @@
+name: Test RepoGuard
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: read
+    steps:
+      - uses: ershaaa/codex@main  
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
